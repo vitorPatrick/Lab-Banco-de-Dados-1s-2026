@@ -7,4 +7,3 @@ CREATE TABLE Usuario (
     data_cadastro DATE NOT NULL
 );
 
-SHOW TABLES;
