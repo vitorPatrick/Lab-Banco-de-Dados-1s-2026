@@ -6,16 +6,16 @@ CREATE TABLE usuario(
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
 	senha VARCHAR(255) NOT NULL,
-	data_cadastro TIMESTAMP NOT NULL,
-	data_atualizacao TIMESTAMP NOT NULL
+	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE categoria(
 	id_categoria INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(128) NOT NULL UNIQUE,
     descricao TEXT,
-    data_cadastro TIMESTAMP,
-    data_atualizacao TIMESTAMP
+	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE autor(
@@ -24,8 +24,8 @@ CREATE TABLE autor(
     ano_nascimento YEAR NOT NULL,
     ano_morte YEAR,
     apresentacao TEXT,
-    data_cadastro TIMESTAMP,
-    data_atualizacao TIMESTAMP
+	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE editora(
@@ -34,8 +34,8 @@ CREATE TABLE editora(
 	cidade VARCHAR(64) NOT NULL,
 	estado VARCHAR(64) NOT NULL,
     pais VARCHAR(64) NOT NULL,
-    data_cadastro TIMESTAMP,
-    data_atualizacao TIMESTAMP
+	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE livro(
@@ -52,7 +52,7 @@ CREATE TABLE livro(
     sinopse TEXT,
     ano_publicacao YEAR,
     lido BOOLEAN NOT NULL DEFAULT(0),
-    data_cadastro TIMESTAMP,
-    data_atualizacao TIMESTAMP
+	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 DESCRIBE livro;
