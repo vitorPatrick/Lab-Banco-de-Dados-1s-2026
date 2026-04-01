@@ -21,7 +21,7 @@ CREATE TABLE categoria(
 CREATE TABLE autor(
 	id_autor INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL UNIQUE,
-    ano_nascimento YEAR NOT NULL,
+    ano_nascimento INT NOT NULL,
     ano_morte YEAR,
     apresentacao TEXT,
 	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -50,10 +50,9 @@ CREATE TABLE livro(
     CONSTRAINT fk_livro_categoria FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria) ON DELETE RESTRICT,
     titulo VARCHAR(255) NOT NULL,
     sinopse TEXT,
-    ano_publicacao YEAR,
+    ano_publicacao INT,
     lido BOOLEAN DEFAULT(0),
 	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-DESCRIBE livro;
-SHOW DATABASES;
+DESCRIBE autor;
